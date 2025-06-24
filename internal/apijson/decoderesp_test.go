@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/miaozen/openai-compatible/internal/apijson"
-	"github.com/openai/openai-go/packages/respjson"
+	"github.com/miaozen/openai-compatible/packages/respjson"
 )
 
 type StructWithNullExtraField struct {

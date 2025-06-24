@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/openai/openai-go"
+	"github.com/miaozen/openai-compatible"
 )
 
 func main() {

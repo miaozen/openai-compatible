@@ -8,8 +8,8 @@ import (
 	"os"
 
 	"github.com/miaozen/openai-compatible/internal/requestconfig"
-	"github.com/openai/openai-go/option"
-	"github.com/openai/openai-go/responses"
+	"github.com/miaozen/openai-compatible/option"
+	"github.com/miaozen/openai-compatible/responses"
 )
 
 // Client creates a struct with services and top level methods that help with

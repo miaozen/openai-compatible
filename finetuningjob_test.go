@@ -8,11 +8,11 @@ import (
 	"os"
 	"testing"
 
+	"github.com/miaozen/openai-compatible"
 	"github.com/miaozen/openai-compatible/internal/testutil"
-	"github.com/openai/openai-go"
-	"github.com/openai/openai-go/option"
-	"github.com/openai/openai-go/shared"
-	"github.com/openai/openai-go/shared/constant"
+	"github.com/miaozen/openai-compatible/option"
+	"github.com/miaozen/openai-compatible/shared"
+	"github.com/miaozen/openai-compatible/shared/constant"
 )
 
 func TestFineTuningJobNewWithOptionalParams(t *testing.T) {

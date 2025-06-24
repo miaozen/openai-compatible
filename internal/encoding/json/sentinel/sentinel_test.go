@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/miaozen/openai-compatible/internal/encoding/json/sentinel"
-	"github.com/openai/openai-go/packages/param"
+	"github.com/miaozen/openai-compatible/packages/param"
 )
 
 type Pair struct {

@@ -8,7 +8,7 @@ import (
 	"net/http/httputil"
 
 	"github.com/miaozen/openai-compatible/internal/apijson"
-	"github.com/openai/openai-go/packages/respjson"
+	"github.com/miaozen/openai-compatible/packages/respjson"
 )
 
 // Error represents an error that originates from the API, i.e. when a request is

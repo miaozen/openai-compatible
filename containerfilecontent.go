@@ -9,7 +9,7 @@ import (
 	"net/http"
 
 	"github.com/miaozen/openai-compatible/internal/requestconfig"
-	"github.com/openai/openai-go/option"
+	"github.com/miaozen/openai-compatible/option"
 )
 
 // ContainerFileContentService contains methods and other services that help with

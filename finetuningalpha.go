@@ -3,7 +3,7 @@
 package openai
 
 import (
-	"github.com/openai/openai-go/option"
+	"github.com/miaozen/openai-compatible/option"
 )
 
 // FineTuningAlphaService contains methods and other services that help with

@@ -16,11 +16,11 @@ import (
 "github.com/miaozen/openai-compatible/internal/apijson"
 "github.com/miaozen/openai-compatible/internal/apiquery"
 "github.com/miaozen/openai-compatible/internal/requestconfig"
-"github.com/openai/openai-go/option"
-"github.com/openai/openai-go/packages/pagination"
-"github.com/openai/openai-go/packages/param"
-"github.com/openai/openai-go/packages/respjson"
-"github.com/openai/openai-go/shared/constant"
+"github.com/miaozen/openai-compatible/option"
+"github.com/miaozen/openai-compatible/packages/pagination"
+"github.com/miaozen/openai-compatible/packages/param"
+"github.com/miaozen/openai-compatible/packages/respjson"
+"github.com/miaozen/openai-compatible/shared/constant"
 )
 
 // ContainerFileService contains methods and other services that help with

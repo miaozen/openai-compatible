@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/miaozen/openai-compatible/internal/apijson"
-	"github.com/openai/openai-go/packages/param"
+	"github.com/miaozen/openai-compatible/packages/param"
 )
 
 func TestOptionalDecoders(t *testing.T) {

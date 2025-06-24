@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/miaozen/openai-compatible/internal/apijson"
-	rj "github.com/openai/openai-go/packages/respjson"
+	rj "github.com/miaozen/openai-compatible/packages/respjson"
 )
 
 type UnionOfStringIntOrObject struct {

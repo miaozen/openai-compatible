@@ -2,8 +2,9 @@ package paramutil
 
 import (
 	"fmt"
-	"github.com/openai/openai-go/packages/param"
 	"reflect"
+
+	"github.com/miaozen/openai-compatible/packages/param"
 )
 
 var paramUnionType = reflect.TypeOf(param.APIUnion{})

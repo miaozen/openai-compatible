@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 
-	"github.com/openai/openai-go"
+	"github.com/miaozen/openai-compatible"
 )
 
 func main() {
@@ -25,7 +25,6 @@ func main() {
 	}
 
 	completion, err := client.Chat.Completions.New(ctx, params)
-
 	if err != nil {
 		panic(err)
 	}
