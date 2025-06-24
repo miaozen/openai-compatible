@@ -11,8 +11,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/miaozen/openai-compatible/internal"
 	"github.com/openai/openai-go"
-	"github.com/openai/openai-go/internal"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/shared"
 )

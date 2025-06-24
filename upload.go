@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/packages/param"
 	"github.com/openai/openai-go/packages/respjson"
@@ -141,6 +141,7 @@ type Upload struct {
 
 // Returns the unmodified JSON received from the API
 func (r Upload) RawJSON() string { return r.JSON.raw }
+
 func (r *Upload) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -179,6 +180,7 @@ func (r UploadNewParams) MarshalJSON() (data []byte, err error) {
 	type shadow UploadNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *UploadNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -196,6 +198,7 @@ func (r UploadCompleteParams) MarshalJSON() (data []byte, err error) {
 	type shadow UploadCompleteParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *UploadCompleteParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

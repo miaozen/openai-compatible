@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/apiquery"
-	"github.com/openai/openai-go/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/apiquery"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/packages/pagination"
 	"github.com/openai/openai-go/packages/param"
@@ -129,6 +129,7 @@ type FineTuningCheckpointPermissionNewResponse struct {
 
 // Returns the unmodified JSON received from the API
 func (r FineTuningCheckpointPermissionNewResponse) RawJSON() string { return r.JSON.raw }
+
 func (r *FineTuningCheckpointPermissionNewResponse) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -153,6 +154,7 @@ type FineTuningCheckpointPermissionGetResponse struct {
 
 // Returns the unmodified JSON received from the API
 func (r FineTuningCheckpointPermissionGetResponse) RawJSON() string { return r.JSON.raw }
+
 func (r *FineTuningCheckpointPermissionGetResponse) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -181,6 +183,7 @@ type FineTuningCheckpointPermissionGetResponseData struct {
 
 // Returns the unmodified JSON received from the API
 func (r FineTuningCheckpointPermissionGetResponseData) RawJSON() string { return r.JSON.raw }
+
 func (r *FineTuningCheckpointPermissionGetResponseData) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -204,6 +207,7 @@ type FineTuningCheckpointPermissionDeleteResponse struct {
 
 // Returns the unmodified JSON received from the API
 func (r FineTuningCheckpointPermissionDeleteResponse) RawJSON() string { return r.JSON.raw }
+
 func (r *FineTuningCheckpointPermissionDeleteResponse) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -218,6 +222,7 @@ func (r FineTuningCheckpointPermissionNewParams) MarshalJSON() (data []byte, err
 	type shadow FineTuningCheckpointPermissionNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *FineTuningCheckpointPermissionNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

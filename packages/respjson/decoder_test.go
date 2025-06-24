@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/openai/openai-go/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/apijson"
 	rj "github.com/openai/openai-go/packages/respjson"
 )
 

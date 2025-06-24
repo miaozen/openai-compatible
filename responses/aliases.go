@@ -3,7 +3,7 @@
 package responses
 
 import (
-	"github.com/openai/openai-go/internal/apierror"
+	"github.com/miaozen/openai-compatible/internal/apierror"
 	"github.com/openai/openai-go/packages/param"
 	"github.com/openai/openai-go/shared"
 )

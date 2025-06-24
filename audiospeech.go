@@ -6,8 +6,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/packages/param"
 )
@@ -82,6 +82,7 @@ func (r AudioSpeechNewParams) MarshalJSON() (data []byte, err error) {
 	type shadow AudioSpeechNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *AudioSpeechNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

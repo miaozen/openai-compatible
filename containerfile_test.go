@@ -10,8 +10,8 @@ import (
 	"os"
 	"testing"
 
+	"github.com/miaozen/openai-compatible/internal/testutil"
 	"github.com/openai/openai-go"
-	"github.com/openai/openai-go/internal/testutil"
 	"github.com/openai/openai-go/option"
 )
 

@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/apiquery"
-	"github.com/openai/openai-go/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/apiquery"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/packages/pagination"
 	"github.com/openai/openai-go/packages/param"
@@ -172,6 +172,7 @@ type Batch struct {
 
 // Returns the unmodified JSON received from the API
 func (r Batch) RawJSON() string { return r.JSON.raw }
+
 func (r *Batch) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -205,6 +206,7 @@ type BatchErrors struct {
 
 // Returns the unmodified JSON received from the API
 func (r BatchErrors) RawJSON() string { return r.JSON.raw }
+
 func (r *BatchErrors) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -231,6 +233,7 @@ type BatchError struct {
 
 // Returns the unmodified JSON received from the API
 func (r BatchError) RawJSON() string { return r.JSON.raw }
+
 func (r *BatchError) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -255,6 +258,7 @@ type BatchRequestCounts struct {
 
 // Returns the unmodified JSON received from the API
 func (r BatchRequestCounts) RawJSON() string { return r.JSON.raw }
+
 func (r *BatchRequestCounts) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -297,6 +301,7 @@ func (r BatchNewParams) MarshalJSON() (data []byte, err error) {
 	type shadow BatchNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BatchNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

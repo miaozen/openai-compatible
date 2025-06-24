@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/packages/param"
 	"github.com/openai/openai-go/packages/respjson"
@@ -213,6 +213,7 @@ type AssistantResponseFormatOptionUnionParam struct {
 func (u AssistantResponseFormatOptionUnionParam) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfAuto, u.OfText, u.OfJSONObject, u.OfJSONSchema)
 }
+
 func (u *AssistantResponseFormatOptionUnionParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -269,6 +270,7 @@ type AssistantToolChoice struct {
 
 // Returns the unmodified JSON received from the API
 func (r AssistantToolChoice) RawJSON() string { return r.JSON.raw }
+
 func (r *AssistantToolChoice) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -308,6 +310,7 @@ func (r AssistantToolChoiceParam) MarshalJSON() (data []byte, err error) {
 	type shadow AssistantToolChoiceParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *AssistantToolChoiceParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -325,6 +328,7 @@ type AssistantToolChoiceFunction struct {
 
 // Returns the unmodified JSON received from the API
 func (r AssistantToolChoiceFunction) RawJSON() string { return r.JSON.raw }
+
 func (r *AssistantToolChoiceFunction) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -350,6 +354,7 @@ func (r AssistantToolChoiceFunctionParam) MarshalJSON() (data []byte, err error)
 	type shadow AssistantToolChoiceFunctionParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *AssistantToolChoiceFunctionParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -434,6 +439,7 @@ type AssistantToolChoiceOptionUnionParam struct {
 func (u AssistantToolChoiceOptionUnionParam) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfAuto, u.OfAssistantToolChoice)
 }
+
 func (u *AssistantToolChoiceOptionUnionParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -482,6 +488,7 @@ type Thread struct {
 
 // Returns the unmodified JSON received from the API
 func (r Thread) RawJSON() string { return r.JSON.raw }
+
 func (r *Thread) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -504,6 +511,7 @@ type ThreadToolResources struct {
 
 // Returns the unmodified JSON received from the API
 func (r ThreadToolResources) RawJSON() string { return r.JSON.raw }
+
 func (r *ThreadToolResources) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -523,6 +531,7 @@ type ThreadToolResourcesCodeInterpreter struct {
 
 // Returns the unmodified JSON received from the API
 func (r ThreadToolResourcesCodeInterpreter) RawJSON() string { return r.JSON.raw }
+
 func (r *ThreadToolResourcesCodeInterpreter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -543,6 +552,7 @@ type ThreadToolResourcesFileSearch struct {
 
 // Returns the unmodified JSON received from the API
 func (r ThreadToolResourcesFileSearch) RawJSON() string { return r.JSON.raw }
+
 func (r *ThreadToolResourcesFileSearch) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -563,6 +573,7 @@ type ThreadDeleted struct {
 
 // Returns the unmodified JSON received from the API
 func (r ThreadDeleted) RawJSON() string { return r.JSON.raw }
+
 func (r *ThreadDeleted) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -590,6 +601,7 @@ func (r BetaThreadNewParams) MarshalJSON() (data []byte, err error) {
 	type shadow BetaThreadNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -623,6 +635,7 @@ func (r BetaThreadNewParamsMessage) MarshalJSON() (data []byte, err error) {
 	type shadow BetaThreadNewParamsMessage
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewParamsMessage) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -645,6 +658,7 @@ type BetaThreadNewParamsMessageContentUnion struct {
 func (u BetaThreadNewParamsMessageContentUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfString, u.OfArrayOfContentParts)
 }
+
 func (u *BetaThreadNewParamsMessageContentUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -670,6 +684,7 @@ func (r BetaThreadNewParamsMessageAttachment) MarshalJSON() (data []byte, err er
 	type shadow BetaThreadNewParamsMessageAttachment
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewParamsMessageAttachment) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -686,6 +701,7 @@ type BetaThreadNewParamsMessageAttachmentToolUnion struct {
 func (u BetaThreadNewParamsMessageAttachmentToolUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfCodeInterpreter, u.OfFileSearch)
 }
+
 func (u *BetaThreadNewParamsMessageAttachmentToolUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -735,6 +751,7 @@ func (r BetaThreadNewParamsMessageAttachmentToolFileSearch) MarshalJSON() (data 
 	type shadow BetaThreadNewParamsMessageAttachmentToolFileSearch
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewParamsMessageAttachmentToolFileSearch) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -753,6 +770,7 @@ func (r BetaThreadNewParamsToolResources) MarshalJSON() (data []byte, err error)
 	type shadow BetaThreadNewParamsToolResources
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewParamsToolResources) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -769,6 +787,7 @@ func (r BetaThreadNewParamsToolResourcesCodeInterpreter) MarshalJSON() (data []b
 	type shadow BetaThreadNewParamsToolResourcesCodeInterpreter
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewParamsToolResourcesCodeInterpreter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -791,6 +810,7 @@ func (r BetaThreadNewParamsToolResourcesFileSearch) MarshalJSON() (data []byte, 
 	type shadow BetaThreadNewParamsToolResourcesFileSearch
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewParamsToolResourcesFileSearch) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -817,6 +837,7 @@ func (r BetaThreadNewParamsToolResourcesFileSearchVectorStore) MarshalJSON() (da
 	type shadow BetaThreadNewParamsToolResourcesFileSearchVectorStore
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewParamsToolResourcesFileSearchVectorStore) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -833,6 +854,7 @@ type BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategyUnion 
 func (u BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategyUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfAuto, u.OfStatic)
 }
+
 func (u *BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategyUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -893,6 +915,7 @@ func (r BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategyAut
 	type shadow BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategyAuto
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategyAuto) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -911,6 +934,7 @@ func (r BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategySta
 	type shadow BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategyStatic
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategyStatic) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -931,6 +955,7 @@ func (r BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategySta
 	type shadow BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewParamsToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -955,6 +980,7 @@ func (r BetaThreadUpdateParams) MarshalJSON() (data []byte, err error) {
 	type shadow BetaThreadUpdateParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadUpdateParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -973,6 +999,7 @@ func (r BetaThreadUpdateParamsToolResources) MarshalJSON() (data []byte, err err
 	type shadow BetaThreadUpdateParamsToolResources
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadUpdateParamsToolResources) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -989,6 +1016,7 @@ func (r BetaThreadUpdateParamsToolResourcesCodeInterpreter) MarshalJSON() (data 
 	type shadow BetaThreadUpdateParamsToolResourcesCodeInterpreter
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadUpdateParamsToolResourcesCodeInterpreter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1006,6 +1034,7 @@ func (r BetaThreadUpdateParamsToolResourcesFileSearch) MarshalJSON() (data []byt
 	type shadow BetaThreadUpdateParamsToolResourcesFileSearch
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadUpdateParamsToolResourcesFileSearch) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1106,6 +1135,7 @@ func (r BetaThreadNewAndRunParams) MarshalJSON() (data []byte, err error) {
 	type shadow BetaThreadNewAndRunParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1135,6 +1165,7 @@ func (r BetaThreadNewAndRunParamsThread) MarshalJSON() (data []byte, err error) 
 	type shadow BetaThreadNewAndRunParamsThread
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsThread) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1168,6 +1199,7 @@ func (r BetaThreadNewAndRunParamsThreadMessage) MarshalJSON() (data []byte, err 
 	type shadow BetaThreadNewAndRunParamsThreadMessage
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsThreadMessage) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1190,6 +1222,7 @@ type BetaThreadNewAndRunParamsThreadMessageContentUnion struct {
 func (u BetaThreadNewAndRunParamsThreadMessageContentUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfString, u.OfArrayOfContentParts)
 }
+
 func (u *BetaThreadNewAndRunParamsThreadMessageContentUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -1215,6 +1248,7 @@ func (r BetaThreadNewAndRunParamsThreadMessageAttachment) MarshalJSON() (data []
 	type shadow BetaThreadNewAndRunParamsThreadMessageAttachment
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsThreadMessageAttachment) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1231,6 +1265,7 @@ type BetaThreadNewAndRunParamsThreadMessageAttachmentToolUnion struct {
 func (u BetaThreadNewAndRunParamsThreadMessageAttachmentToolUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfCodeInterpreter, u.OfFileSearch)
 }
+
 func (u *BetaThreadNewAndRunParamsThreadMessageAttachmentToolUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -1280,6 +1315,7 @@ func (r BetaThreadNewAndRunParamsThreadMessageAttachmentToolFileSearch) MarshalJ
 	type shadow BetaThreadNewAndRunParamsThreadMessageAttachmentToolFileSearch
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsThreadMessageAttachmentToolFileSearch) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1298,6 +1334,7 @@ func (r BetaThreadNewAndRunParamsThreadToolResources) MarshalJSON() (data []byte
 	type shadow BetaThreadNewAndRunParamsThreadToolResources
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsThreadToolResources) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1314,6 +1351,7 @@ func (r BetaThreadNewAndRunParamsThreadToolResourcesCodeInterpreter) MarshalJSON
 	type shadow BetaThreadNewAndRunParamsThreadToolResourcesCodeInterpreter
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsThreadToolResourcesCodeInterpreter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1336,6 +1374,7 @@ func (r BetaThreadNewAndRunParamsThreadToolResourcesFileSearch) MarshalJSON() (d
 	type shadow BetaThreadNewAndRunParamsThreadToolResourcesFileSearch
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsThreadToolResourcesFileSearch) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1362,6 +1401,7 @@ func (r BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStore) Marsh
 	type shadow BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStore
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStore) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1378,6 +1418,7 @@ type BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkingSt
 func (u BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkingStrategyUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfAuto, u.OfStatic)
 }
+
 func (u *BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkingStrategyUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -1438,6 +1479,7 @@ func (r BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkin
 	type shadow BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkingStrategyAuto
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkingStrategyAuto) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1456,6 +1498,7 @@ func (r BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkin
 	type shadow BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkingStrategyStatic
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkingStrategyStatic) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1476,6 +1519,7 @@ func (r BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkin
 	type shadow BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1494,6 +1538,7 @@ func (r BetaThreadNewAndRunParamsToolResources) MarshalJSON() (data []byte, err 
 	type shadow BetaThreadNewAndRunParamsToolResources
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsToolResources) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1510,6 +1555,7 @@ func (r BetaThreadNewAndRunParamsToolResourcesCodeInterpreter) MarshalJSON() (da
 	type shadow BetaThreadNewAndRunParamsToolResourcesCodeInterpreter
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsToolResourcesCodeInterpreter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1527,6 +1573,7 @@ func (r BetaThreadNewAndRunParamsToolResourcesFileSearch) MarshalJSON() (data []
 	type shadow BetaThreadNewAndRunParamsToolResourcesFileSearch
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsToolResourcesFileSearch) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1553,6 +1600,7 @@ func (r BetaThreadNewAndRunParamsTruncationStrategy) MarshalJSON() (data []byte,
 	type shadow BetaThreadNewAndRunParamsTruncationStrategy
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadNewAndRunParamsTruncationStrategy) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

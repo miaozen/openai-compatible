@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/apiquery"
-	"github.com/openai/openai-go/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/apiquery"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/packages/pagination"
 	"github.com/openai/openai-go/packages/param"
@@ -239,6 +239,7 @@ type RequiredActionFunctionToolCall struct {
 
 // Returns the unmodified JSON received from the API
 func (r RequiredActionFunctionToolCall) RawJSON() string { return r.JSON.raw }
+
 func (r *RequiredActionFunctionToolCall) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -260,6 +261,7 @@ type RequiredActionFunctionToolCallFunction struct {
 
 // Returns the unmodified JSON received from the API
 func (r RequiredActionFunctionToolCallFunction) RawJSON() string { return r.JSON.raw }
+
 func (r *RequiredActionFunctionToolCallFunction) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -409,6 +411,7 @@ type Run struct {
 
 // Returns the unmodified JSON received from the API
 func (r Run) RawJSON() string { return r.JSON.raw }
+
 func (r *Run) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -431,6 +434,7 @@ type RunIncompleteDetails struct {
 
 // Returns the unmodified JSON received from the API
 func (r RunIncompleteDetails) RawJSON() string { return r.JSON.raw }
+
 func (r *RunIncompleteDetails) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -454,6 +458,7 @@ type RunLastError struct {
 
 // Returns the unmodified JSON received from the API
 func (r RunLastError) RawJSON() string { return r.JSON.raw }
+
 func (r *RunLastError) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -476,6 +481,7 @@ type RunRequiredAction struct {
 
 // Returns the unmodified JSON received from the API
 func (r RunRequiredAction) RawJSON() string { return r.JSON.raw }
+
 func (r *RunRequiredAction) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -494,6 +500,7 @@ type RunRequiredActionSubmitToolOutputs struct {
 
 // Returns the unmodified JSON received from the API
 func (r RunRequiredActionSubmitToolOutputs) RawJSON() string { return r.JSON.raw }
+
 func (r *RunRequiredActionSubmitToolOutputs) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -522,6 +529,7 @@ type RunTruncationStrategy struct {
 
 // Returns the unmodified JSON received from the API
 func (r RunTruncationStrategy) RawJSON() string { return r.JSON.raw }
+
 func (r *RunTruncationStrategy) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -547,6 +555,7 @@ type RunUsage struct {
 
 // Returns the unmodified JSON received from the API
 func (r RunUsage) RawJSON() string { return r.JSON.raw }
+
 func (r *RunUsage) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -680,6 +689,7 @@ func (r BetaThreadRunNewParams) MarshalJSON() (data []byte, err error) {
 	type shadow BetaThreadRunNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadRunNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -721,6 +731,7 @@ func (r BetaThreadRunNewParamsAdditionalMessage) MarshalJSON() (data []byte, err
 	type shadow BetaThreadRunNewParamsAdditionalMessage
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadRunNewParamsAdditionalMessage) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -743,6 +754,7 @@ type BetaThreadRunNewParamsAdditionalMessageContentUnion struct {
 func (u BetaThreadRunNewParamsAdditionalMessageContentUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfString, u.OfArrayOfContentParts)
 }
+
 func (u *BetaThreadRunNewParamsAdditionalMessageContentUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -768,6 +780,7 @@ func (r BetaThreadRunNewParamsAdditionalMessageAttachment) MarshalJSON() (data [
 	type shadow BetaThreadRunNewParamsAdditionalMessageAttachment
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadRunNewParamsAdditionalMessageAttachment) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -784,6 +797,7 @@ type BetaThreadRunNewParamsAdditionalMessageAttachmentToolUnion struct {
 func (u BetaThreadRunNewParamsAdditionalMessageAttachmentToolUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfCodeInterpreter, u.OfFileSearch)
 }
+
 func (u *BetaThreadRunNewParamsAdditionalMessageAttachmentToolUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -833,6 +847,7 @@ func (r BetaThreadRunNewParamsAdditionalMessageAttachmentToolFileSearch) Marshal
 	type shadow BetaThreadRunNewParamsAdditionalMessageAttachmentToolFileSearch
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadRunNewParamsAdditionalMessageAttachmentToolFileSearch) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -859,6 +874,7 @@ func (r BetaThreadRunNewParamsTruncationStrategy) MarshalJSON() (data []byte, er
 	type shadow BetaThreadRunNewParamsTruncationStrategy
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadRunNewParamsTruncationStrategy) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -884,6 +900,7 @@ func (r BetaThreadRunUpdateParams) MarshalJSON() (data []byte, err error) {
 	type shadow BetaThreadRunUpdateParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadRunUpdateParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -938,6 +955,7 @@ func (r BetaThreadRunSubmitToolOutputsParams) MarshalJSON() (data []byte, err er
 	type shadow BetaThreadRunSubmitToolOutputsParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadRunSubmitToolOutputsParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -955,6 +973,7 @@ func (r BetaThreadRunSubmitToolOutputsParamsToolOutput) MarshalJSON() (data []by
 	type shadow BetaThreadRunSubmitToolOutputsParamsToolOutput
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadRunSubmitToolOutputsParamsToolOutput) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

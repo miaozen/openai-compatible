@@ -1,9 +1,10 @@
 package sentinel
 
 import (
-	"github.com/openai/openai-go/internal/encoding/json/shims"
 	"reflect"
 	"sync"
+
+	"github.com/miaozen/openai-compatible/internal/encoding/json/shims"
 )
 
 type cacheEntry struct {

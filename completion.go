@@ -6,8 +6,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/packages/param"
 	"github.com/openai/openai-go/packages/respjson"
@@ -91,6 +91,7 @@ type Completion struct {
 
 // Returns the unmodified JSON received from the API
 func (r Completion) RawJSON() string { return r.JSON.raw }
+
 func (r *Completion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -119,6 +120,7 @@ type CompletionChoice struct {
 
 // Returns the unmodified JSON received from the API
 func (r CompletionChoice) RawJSON() string { return r.JSON.raw }
+
 func (r *CompletionChoice) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -153,6 +155,7 @@ type CompletionChoiceLogprobs struct {
 
 // Returns the unmodified JSON received from the API
 func (r CompletionChoiceLogprobs) RawJSON() string { return r.JSON.raw }
+
 func (r *CompletionChoiceLogprobs) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -183,6 +186,7 @@ type CompletionUsage struct {
 
 // Returns the unmodified JSON received from the API
 func (r CompletionUsage) RawJSON() string { return r.JSON.raw }
+
 func (r *CompletionUsage) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -214,6 +218,7 @@ type CompletionUsageCompletionTokensDetails struct {
 
 // Returns the unmodified JSON received from the API
 func (r CompletionUsageCompletionTokensDetails) RawJSON() string { return r.JSON.raw }
+
 func (r *CompletionUsageCompletionTokensDetails) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -235,6 +240,7 @@ type CompletionUsagePromptTokensDetails struct {
 
 // Returns the unmodified JSON received from the API
 func (r CompletionUsagePromptTokensDetails) RawJSON() string { return r.JSON.raw }
+
 func (r *CompletionUsagePromptTokensDetails) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -352,6 +358,7 @@ func (r CompletionNewParams) MarshalJSON() (data []byte, err error) {
 	type shadow CompletionNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *CompletionNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -383,6 +390,7 @@ type CompletionNewParamsPromptUnion struct {
 func (u CompletionNewParamsPromptUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfString, u.OfArrayOfStrings, u.OfArrayOfTokens, u.OfArrayOfTokenArrays)
 }
+
 func (u *CompletionNewParamsPromptUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -412,6 +420,7 @@ type CompletionNewParamsStopUnion struct {
 func (u CompletionNewParamsStopUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfString, u.OfStringArray)
 }
+
 func (u *CompletionNewParamsStopUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }

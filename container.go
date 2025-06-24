@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/apiquery"
-	"github.com/openai/openai-go/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/apiquery"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/packages/pagination"
 	"github.com/openai/openai-go/packages/param"
@@ -125,6 +125,7 @@ type ContainerNewResponse struct {
 
 // Returns the unmodified JSON received from the API
 func (r ContainerNewResponse) RawJSON() string { return r.JSON.raw }
+
 func (r *ContainerNewResponse) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -150,6 +151,7 @@ type ContainerNewResponseExpiresAfter struct {
 
 // Returns the unmodified JSON received from the API
 func (r ContainerNewResponseExpiresAfter) RawJSON() string { return r.JSON.raw }
+
 func (r *ContainerNewResponseExpiresAfter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -184,6 +186,7 @@ type ContainerGetResponse struct {
 
 // Returns the unmodified JSON received from the API
 func (r ContainerGetResponse) RawJSON() string { return r.JSON.raw }
+
 func (r *ContainerGetResponse) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -209,6 +212,7 @@ type ContainerGetResponseExpiresAfter struct {
 
 // Returns the unmodified JSON received from the API
 func (r ContainerGetResponseExpiresAfter) RawJSON() string { return r.JSON.raw }
+
 func (r *ContainerGetResponseExpiresAfter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -243,6 +247,7 @@ type ContainerListResponse struct {
 
 // Returns the unmodified JSON received from the API
 func (r ContainerListResponse) RawJSON() string { return r.JSON.raw }
+
 func (r *ContainerListResponse) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -268,6 +273,7 @@ type ContainerListResponseExpiresAfter struct {
 
 // Returns the unmodified JSON received from the API
 func (r ContainerListResponseExpiresAfter) RawJSON() string { return r.JSON.raw }
+
 func (r *ContainerListResponseExpiresAfter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -286,6 +292,7 @@ func (r ContainerNewParams) MarshalJSON() (data []byte, err error) {
 	type shadow ContainerNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ContainerNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -307,6 +314,7 @@ func (r ContainerNewParamsExpiresAfter) MarshalJSON() (data []byte, err error) {
 	type shadow ContainerNewParamsExpiresAfter
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ContainerNewParamsExpiresAfter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

@@ -14,7 +14,6 @@ import (
 	"encoding"
 	"encoding/base64"
 	"fmt"
-	"github.com/openai/openai-go/internal/encoding/json/shims"
 	"reflect"
 	"strconv"
 	"strings"
@@ -22,6 +21,8 @@ import (
 	"unicode/utf16"
 	"unicode/utf8"
 	_ "unsafe" // for linkname
+
+	"github.com/miaozen/openai-compatible/internal/encoding/json/shims"
 )
 
 // Unmarshal parses the JSON-encoded data and stores the result
@@ -1060,7 +1061,7 @@ func (d *decodeState) valueInterface() (val any) {
 
 // arrayInterface is like array but returns []any.
 func (d *decodeState) arrayInterface() []any {
-	var v = make([]any, 0)
+	v := make([]any, 0)
 	for {
 		// Look ahead for ] - can only happen on first iteration.
 		d.scanWhile(scanSkipSpace)

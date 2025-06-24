@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/openai/openai-go/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/responses"
 )

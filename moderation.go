@@ -6,8 +6,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/packages/param"
 	"github.com/openai/openai-go/packages/respjson"
@@ -64,6 +64,7 @@ type Moderation struct {
 
 // Returns the unmodified JSON received from the API
 func (r Moderation) RawJSON() string { return r.JSON.raw }
+
 func (r *Moderation) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -135,6 +136,7 @@ type ModerationCategories struct {
 
 // Returns the unmodified JSON received from the API
 func (r ModerationCategories) RawJSON() string { return r.JSON.raw }
+
 func (r *ModerationCategories) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -215,6 +217,7 @@ type ModerationCategoryAppliedInputTypes struct {
 
 // Returns the unmodified JSON received from the API
 func (r ModerationCategoryAppliedInputTypes) RawJSON() string { return r.JSON.raw }
+
 func (r *ModerationCategoryAppliedInputTypes) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -269,6 +272,7 @@ type ModerationCategoryScores struct {
 
 // Returns the unmodified JSON received from the API
 func (r ModerationCategoryScores) RawJSON() string { return r.JSON.raw }
+
 func (r *ModerationCategoryScores) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -290,6 +294,7 @@ func (r ModerationImageURLInputParam) MarshalJSON() (data []byte, err error) {
 	type shadow ModerationImageURLInputParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ModerationImageURLInputParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -307,6 +312,7 @@ func (r ModerationImageURLInputImageURLParam) MarshalJSON() (data []byte, err er
 	type shadow ModerationImageURLInputImageURLParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ModerationImageURLInputImageURLParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -344,6 +350,7 @@ type ModerationMultiModalInputUnionParam struct {
 func (u ModerationMultiModalInputUnionParam) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfImageURL, u.OfText)
 }
+
 func (u *ModerationMultiModalInputUnionParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -408,6 +415,7 @@ func (r ModerationTextInputParam) MarshalJSON() (data []byte, err error) {
 	type shadow ModerationTextInputParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ModerationTextInputParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -432,6 +440,7 @@ type ModerationNewResponse struct {
 
 // Returns the unmodified JSON received from the API
 func (r ModerationNewResponse) RawJSON() string { return r.JSON.raw }
+
 func (r *ModerationNewResponse) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -452,6 +461,7 @@ func (r ModerationNewParams) MarshalJSON() (data []byte, err error) {
 	type shadow ModerationNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ModerationNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -469,6 +479,7 @@ type ModerationNewParamsInputUnion struct {
 func (u ModerationNewParamsInputUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfString, u.OfStringArray, u.OfModerationMultiModalArray)
 }
+
 func (u *ModerationNewParamsInputUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }

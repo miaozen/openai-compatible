@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
 	"github.com/openai/openai-go/option"
 	"github.com/openai/openai-go/packages/pagination"
 	"github.com/openai/openai-go/packages/respjson"
@@ -109,6 +109,7 @@ type Model struct {
 
 // Returns the unmodified JSON received from the API
 func (r Model) RawJSON() string { return r.JSON.raw }
+
 func (r *Model) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -129,6 +130,7 @@ type ModelDeleted struct {
 
 // Returns the unmodified JSON received from the API
 func (r ModelDeleted) RawJSON() string { return r.JSON.raw }
+
 func (r *ModelDeleted) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
