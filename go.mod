@@ -1,10 +1,11 @@
-module github.com/openai/openai-go
+module github.com/miaozen/openai-compatible
 
 go 1.21
 
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.17.0
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.7.0
+	github.com/openai/openai-go v1.7.0
 	github.com/tidwall/gjson v1.14.4
 	github.com/tidwall/sjson v1.2.5
 )
