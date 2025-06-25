@@ -5,18 +5,22 @@ package shared
 import (
 	"encoding/json"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/packages/param"
-	"github.com/openai/openai-go/packages/respjson"
-	"github.com/openai/openai-go/shared/constant"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/packages/param"
+	"github.com/miaozen/openai-compatible/packages/respjson"
+	"github.com/miaozen/openai-compatible/shared/constant"
 )
 
 // aliased to make [param.APIUnion] private when embedding
-type paramUnion = param.APIUnion
-type paramObj = param.APIObject
+type (
+	paramUnion = param.APIUnion
+	paramObj   = param.APIObject
+)
 
-type ChatModel = string
-type ResponsesModel = string
+type (
+	ChatModel      = string
+	ResponsesModel = string
+)
 
 // aliased to make [param.APIObject] private when embedding
 
@@ -109,6 +113,7 @@ type ComparisonFilter struct {
 
 // Returns the unmodified JSON received from the API
 func (r ComparisonFilter) RawJSON() string { return r.JSON.raw }
+
 func (r *ComparisonFilter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -213,6 +218,7 @@ func (r ComparisonFilterParam) MarshalJSON() (data []byte, err error) {
 	type shadow ComparisonFilterParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ComparisonFilterParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -230,6 +236,7 @@ type ComparisonFilterValueUnionParam struct {
 func (u ComparisonFilterValueUnionParam) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfString, u.OfFloat, u.OfBool)
 }
+
 func (u *ComparisonFilterValueUnionParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -265,6 +272,7 @@ type CompoundFilter struct {
 
 // Returns the unmodified JSON received from the API
 func (r CompoundFilter) RawJSON() string { return r.JSON.raw }
+
 func (r *CompoundFilter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -304,6 +312,7 @@ func (r CompoundFilterParam) MarshalJSON() (data []byte, err error) {
 	type shadow CompoundFilterParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *CompoundFilterParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -326,6 +335,7 @@ type ErrorObject struct {
 
 // Returns the unmodified JSON received from the API
 func (r ErrorObject) RawJSON() string { return r.JSON.raw }
+
 func (r *ErrorObject) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -364,6 +374,7 @@ type FunctionDefinition struct {
 
 // Returns the unmodified JSON received from the API
 func (r FunctionDefinition) RawJSON() string { return r.JSON.raw }
+
 func (r *FunctionDefinition) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -406,6 +417,7 @@ func (r FunctionDefinitionParam) MarshalJSON() (data []byte, err error) {
 	type shadow FunctionDefinitionParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *FunctionDefinitionParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -456,6 +468,7 @@ type Reasoning struct {
 
 // Returns the unmodified JSON received from the API
 func (r Reasoning) RawJSON() string { return r.JSON.raw }
+
 func (r *Reasoning) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -530,6 +543,7 @@ func (r ReasoningParam) MarshalJSON() (data []byte, err error) {
 	type shadow ReasoningParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ReasoningParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -564,6 +578,7 @@ type ResponseFormatJSONObject struct {
 
 // Returns the unmodified JSON received from the API
 func (r ResponseFormatJSONObject) RawJSON() string { return r.JSON.raw }
+
 func (r *ResponseFormatJSONObject) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -602,6 +617,7 @@ func (r ResponseFormatJSONObjectParam) MarshalJSON() (data []byte, err error) {
 	type shadow ResponseFormatJSONObjectParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ResponseFormatJSONObjectParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -625,6 +641,7 @@ type ResponseFormatJSONSchema struct {
 
 // Returns the unmodified JSON received from the API
 func (r ResponseFormatJSONSchema) RawJSON() string { return r.JSON.raw }
+
 func (r *ResponseFormatJSONSchema) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -669,6 +686,7 @@ type ResponseFormatJSONSchemaJSONSchema struct {
 
 // Returns the unmodified JSON received from the API
 func (r ResponseFormatJSONSchemaJSONSchema) RawJSON() string { return r.JSON.raw }
+
 func (r *ResponseFormatJSONSchemaJSONSchema) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -692,6 +710,7 @@ func (r ResponseFormatJSONSchemaParam) MarshalJSON() (data []byte, err error) {
 	type shadow ResponseFormatJSONSchemaParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ResponseFormatJSONSchemaParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -722,6 +741,7 @@ func (r ResponseFormatJSONSchemaJSONSchemaParam) MarshalJSON() (data []byte, err
 	type shadow ResponseFormatJSONSchemaJSONSchemaParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ResponseFormatJSONSchemaJSONSchemaParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -740,6 +760,7 @@ type ResponseFormatText struct {
 
 // Returns the unmodified JSON received from the API
 func (r ResponseFormatText) RawJSON() string { return r.JSON.raw }
+
 func (r *ResponseFormatText) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -775,6 +796,7 @@ func (r ResponseFormatTextParam) MarshalJSON() (data []byte, err error) {
 	type shadow ResponseFormatTextParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ResponseFormatTextParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

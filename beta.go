@@ -3,7 +3,7 @@
 package openai
 
 import (
-	"github.com/openai/openai-go/option"
+	"github.com/miaozen/openai-compatible/option"
 )
 
 // BetaService contains methods and other services that help with interacting with

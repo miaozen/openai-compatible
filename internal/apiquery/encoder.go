@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/openai/openai-go/packages/param"
+	"github.com/miaozen/openai-compatible/packages/param"
 )
 
 var encoders sync.Map // map[reflect.Type]encoderFunc
@@ -411,5 +411,4 @@ func (e encoder) newInterfaceEncoder() encoderFunc {
 		}
 		return e.typeEncoder(value.Type())(key, value)
 	}
-
 }

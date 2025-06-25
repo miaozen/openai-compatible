@@ -18,10 +18,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/openai/openai-go/internal"
-	"github.com/openai/openai-go/internal/apierror"
-	"github.com/openai/openai-go/internal/apiform"
-	"github.com/openai/openai-go/internal/apiquery"
+	"github.com/miaozen/openai-compatible/internal"
+	"github.com/miaozen/openai-compatible/internal/apierror"
+	"github.com/miaozen/openai-compatible/internal/apiform"
+	"github.com/miaozen/openai-compatible/internal/apiquery"
 	"github.com/tidwall/gjson"
 )
 
@@ -82,8 +82,10 @@ type RequestOption interface {
 	Apply(*RequestConfig) error
 }
 
-type RequestOptionFunc func(*RequestConfig) error
-type PreRequestOptionFunc func(*RequestConfig) error
+type (
+	RequestOptionFunc    func(*RequestConfig) error
+	PreRequestOptionFunc func(*RequestConfig) error
+)
 
 func (s RequestOptionFunc) Apply(r *RequestConfig) error    { return s(r) }
 func (s PreRequestOptionFunc) Apply(r *RequestConfig) error { return s(r) }

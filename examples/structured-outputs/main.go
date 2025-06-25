@@ -6,7 +6,7 @@ import (
 	"fmt"
 
 	"github.com/invopop/jsonschema"
-	"github.com/openai/openai-go"
+	"github.com/miaozen/openai-compatible"
 )
 
 // A struct that will be converted to a Structured Outputs response schema
@@ -64,7 +64,6 @@ func main() {
 		// Only certain models can perform structured outputs
 		Model: openai.ChatModelGPT4o2024_08_06,
 	})
-
 	if err != nil {
 		panic(err.Error())
 	}

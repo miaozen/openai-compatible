@@ -9,12 +9,12 @@ import (
 	"mime/multipart"
 	"net/http"
 
-	"github.com/openai/openai-go/internal/apiform"
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/requestconfig"
-	"github.com/openai/openai-go/option"
-	"github.com/openai/openai-go/packages/param"
-	"github.com/openai/openai-go/packages/respjson"
+	"github.com/miaozen/openai-compatible/internal/apiform"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/option"
+	"github.com/miaozen/openai-compatible/packages/param"
+	"github.com/miaozen/openai-compatible/packages/respjson"
 )
 
 // ImageService contains methods and other services that help with interacting with
@@ -86,6 +86,7 @@ type Image struct {
 
 // Returns the unmodified JSON received from the API
 func (r Image) RawJSON() string { return r.JSON.raw }
+
 func (r *Image) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -118,6 +119,7 @@ type ImagesResponse struct {
 
 // Returns the unmodified JSON received from the API
 func (r ImagesResponse) RawJSON() string { return r.JSON.raw }
+
 func (r *ImagesResponse) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -145,6 +147,7 @@ type ImagesResponseUsage struct {
 
 // Returns the unmodified JSON received from the API
 func (r ImagesResponseUsage) RawJSON() string { return r.JSON.raw }
+
 func (r *ImagesResponseUsage) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -166,6 +169,7 @@ type ImagesResponseUsageInputTokensDetails struct {
 
 // Returns the unmodified JSON received from the API
 func (r ImagesResponseUsageInputTokensDetails) RawJSON() string { return r.JSON.raw }
+
 func (r *ImagesResponseUsageInputTokensDetails) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -334,6 +338,7 @@ type ImageEditParamsImageUnion struct {
 func (u ImageEditParamsImageUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfFile, u.OfFileArray)
 }
+
 func (u *ImageEditParamsImageUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -490,6 +495,7 @@ func (r ImageGenerateParams) MarshalJSON() (data []byte, err error) {
 	type shadow ImageGenerateParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ImageGenerateParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

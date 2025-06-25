@@ -10,15 +10,15 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/apiquery"
-	"github.com/openai/openai-go/internal/requestconfig"
-	"github.com/openai/openai-go/option"
-	"github.com/openai/openai-go/packages/pagination"
-	"github.com/openai/openai-go/packages/param"
-	"github.com/openai/openai-go/packages/respjson"
-	"github.com/openai/openai-go/shared"
-	"github.com/openai/openai-go/shared/constant"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/apiquery"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/option"
+	"github.com/miaozen/openai-compatible/packages/pagination"
+	"github.com/miaozen/openai-compatible/packages/param"
+	"github.com/miaozen/openai-compatible/packages/respjson"
+	"github.com/miaozen/openai-compatible/shared"
+	"github.com/miaozen/openai-compatible/shared/constant"
 )
 
 // FineTuningJobService contains methods and other services that help with
@@ -245,6 +245,7 @@ type FineTuningJob struct {
 
 // Returns the unmodified JSON received from the API
 func (r FineTuningJob) RawJSON() string { return r.JSON.raw }
+
 func (r *FineTuningJob) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -271,6 +272,7 @@ type FineTuningJobError struct {
 
 // Returns the unmodified JSON received from the API
 func (r FineTuningJobError) RawJSON() string { return r.JSON.raw }
+
 func (r *FineTuningJobError) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -299,6 +301,7 @@ type FineTuningJobHyperparameters struct {
 
 // Returns the unmodified JSON received from the API
 func (r FineTuningJobHyperparameters) RawJSON() string { return r.JSON.raw }
+
 func (r *FineTuningJobHyperparameters) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -452,6 +455,7 @@ type FineTuningJobMethod struct {
 
 // Returns the unmodified JSON received from the API
 func (r FineTuningJobMethod) RawJSON() string { return r.JSON.raw }
+
 func (r *FineTuningJobMethod) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -492,6 +496,7 @@ type FineTuningJobEvent struct {
 
 // Returns the unmodified JSON received from the API
 func (r FineTuningJobEvent) RawJSON() string { return r.JSON.raw }
+
 func (r *FineTuningJobEvent) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -544,6 +549,7 @@ type FineTuningJobWandbIntegration struct {
 
 // Returns the unmodified JSON received from the API
 func (r FineTuningJobWandbIntegration) RawJSON() string { return r.JSON.raw }
+
 func (r *FineTuningJobWandbIntegration) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -567,6 +573,7 @@ type FineTuningJobWandbIntegrationObject struct {
 
 // Returns the unmodified JSON received from the API
 func (r FineTuningJobWandbIntegrationObject) RawJSON() string { return r.JSON.raw }
+
 func (r *FineTuningJobWandbIntegrationObject) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -639,6 +646,7 @@ func (r FineTuningJobNewParams) MarshalJSON() (data []byte, err error) {
 	type shadow FineTuningJobNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *FineTuningJobNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -675,6 +683,7 @@ func (r FineTuningJobNewParamsHyperparameters) MarshalJSON() (data []byte, err e
 	type shadow FineTuningJobNewParamsHyperparameters
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *FineTuningJobNewParamsHyperparameters) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -692,6 +701,7 @@ type FineTuningJobNewParamsHyperparametersBatchSizeUnion struct {
 func (u FineTuningJobNewParamsHyperparametersBatchSizeUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfAuto, u.OfInt)
 }
+
 func (u *FineTuningJobNewParamsHyperparametersBatchSizeUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -718,6 +728,7 @@ type FineTuningJobNewParamsHyperparametersLearningRateMultiplierUnion struct {
 func (u FineTuningJobNewParamsHyperparametersLearningRateMultiplierUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfAuto, u.OfFloat)
 }
+
 func (u *FineTuningJobNewParamsHyperparametersLearningRateMultiplierUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -744,6 +755,7 @@ type FineTuningJobNewParamsHyperparametersNEpochsUnion struct {
 func (u FineTuningJobNewParamsHyperparametersNEpochsUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfAuto, u.OfInt)
 }
+
 func (u *FineTuningJobNewParamsHyperparametersNEpochsUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -776,6 +788,7 @@ func (r FineTuningJobNewParamsIntegration) MarshalJSON() (data []byte, err error
 	type shadow FineTuningJobNewParamsIntegration
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *FineTuningJobNewParamsIntegration) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -807,6 +820,7 @@ func (r FineTuningJobNewParamsIntegrationWandb) MarshalJSON() (data []byte, err 
 	type shadow FineTuningJobNewParamsIntegrationWandb
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *FineTuningJobNewParamsIntegrationWandb) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -832,6 +846,7 @@ func (r FineTuningJobNewParamsMethod) MarshalJSON() (data []byte, err error) {
 	type shadow FineTuningJobNewParamsMethod
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *FineTuningJobNewParamsMethod) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

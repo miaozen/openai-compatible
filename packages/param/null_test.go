@@ -2,8 +2,9 @@ package param_test
 
 import (
 	"encoding/json"
-	"github.com/openai/openai-go/packages/param"
 	"testing"
+
+	"github.com/miaozen/openai-compatible/packages/param"
 )
 
 type Nullables struct {

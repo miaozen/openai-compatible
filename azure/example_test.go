@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/openai/openai-go"
-	"github.com/openai/openai-go/azure"
+	"github.com/miaozen/openai-compatible"
+	"github.com/miaozen/openai-compatible/azure"
 )
 
 func Example_authentication() {
@@ -19,7 +19,6 @@ func Example_authentication() {
 		// For a full list of credential types look at the documentation for the Azure Identity
 		// package: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity
 		tokenCredential, err := azidentity.NewDefaultAzureCredential(nil)
-
 		if err != nil {
 			fmt.Printf("Failed to create TokenCredential: %s\n", err)
 			return

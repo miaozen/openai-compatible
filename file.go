@@ -12,15 +12,15 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/openai/openai-go/internal/apiform"
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/apiquery"
-	"github.com/openai/openai-go/internal/requestconfig"
-	"github.com/openai/openai-go/option"
-	"github.com/openai/openai-go/packages/pagination"
-	"github.com/openai/openai-go/packages/param"
-	"github.com/openai/openai-go/packages/respjson"
-	"github.com/openai/openai-go/shared/constant"
+	"github.com/miaozen/openai-compatible/internal/apiform"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/apiquery"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/option"
+	"github.com/miaozen/openai-compatible/packages/pagination"
+	"github.com/miaozen/openai-compatible/packages/param"
+	"github.com/miaozen/openai-compatible/packages/respjson"
+	"github.com/miaozen/openai-compatible/shared/constant"
 )
 
 // FileService contains methods and other services that help with interacting with
@@ -146,6 +146,7 @@ type FileDeleted struct {
 
 // Returns the unmodified JSON received from the API
 func (r FileDeleted) RawJSON() string { return r.JSON.raw }
+
 func (r *FileDeleted) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -201,6 +202,7 @@ type FileObject struct {
 
 // Returns the unmodified JSON received from the API
 func (r FileObject) RawJSON() string { return r.JSON.raw }
+
 func (r *FileObject) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

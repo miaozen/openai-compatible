@@ -10,9 +10,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/openai/openai-go"
-	"github.com/openai/openai-go/internal/testutil"
-	"github.com/openai/openai-go/option"
+	"github.com/miaozen/openai-compatible"
+	"github.com/miaozen/openai-compatible/internal/testutil"
+	"github.com/miaozen/openai-compatible/option"
 )
 
 func TestAudioTranslationNewWithOptionalParams(t *testing.T) {

@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"net/http/httputil"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/packages/respjson"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/packages/respjson"
 )
 
 // Error represents an error that originates from the API, i.e. when a request is
@@ -35,6 +35,7 @@ type Error struct {
 
 // Returns the unmodified JSON received from the API
 func (r Error) RawJSON() string { return r.JSON.raw }
+
 func (r *Error) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/openai/openai-go"
-	"github.com/openai/openai-go/internal/apijson"
+	"github.com/miaozen/openai-compatible"
+	"github.com/miaozen/openai-compatible/internal/apijson"
 )
 
 func TestJSONRoute(t *testing.T) {
@@ -20,19 +20,16 @@ func TestJSONRoute(t *testing.T) {
 	}
 
 	serializedBytes, err := apijson.MarshalRoot(chatCompletionParams)
-
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	req, err := http.NewRequest("POST", "/openai/chat/completions", bytes.NewReader(serializedBytes))
-
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	replacementPath, err := getReplacementPathWithDeployment(req)
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -48,7 +45,6 @@ func TestGetAudioMultipartRoute(t *testing.T) {
 	defer mw.Close()
 
 	fw, err := mw.CreateFormFile("file", "test.mp3")
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -66,7 +62,6 @@ func TestGetAudioMultipartRoute(t *testing.T) {
 	}
 
 	req, err := http.NewRequest("POST", "/openai/audio/transcriptions", bytes.NewReader(buff.Bytes()))
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -74,7 +69,6 @@ func TestGetAudioMultipartRoute(t *testing.T) {
 	req.Header.Set("Content-Type", mw.FormDataContentType())
 
 	replacementPath, err := getReplacementPathWithDeployment(req)
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -94,19 +88,16 @@ func TestNoRouteChangeNeeded(t *testing.T) {
 	}
 
 	serializedBytes, err := apijson.MarshalRoot(chatCompletionParams)
-
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	req, err := http.NewRequest("POST", "/openai/does/not/need/a/deployment", bytes.NewReader(serializedBytes))
-
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	replacementPath, err := getReplacementPathWithDeployment(req)
-
 	if err != nil {
 		t.Fatal(err)
 	}

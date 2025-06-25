@@ -10,15 +10,15 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/apiquery"
-	"github.com/openai/openai-go/internal/requestconfig"
-	"github.com/openai/openai-go/option"
-	"github.com/openai/openai-go/packages/pagination"
-	"github.com/openai/openai-go/packages/param"
-	"github.com/openai/openai-go/packages/respjson"
-	"github.com/openai/openai-go/shared"
-	"github.com/openai/openai-go/shared/constant"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/apiquery"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/option"
+	"github.com/miaozen/openai-compatible/packages/pagination"
+	"github.com/miaozen/openai-compatible/packages/param"
+	"github.com/miaozen/openai-compatible/packages/respjson"
+	"github.com/miaozen/openai-compatible/shared"
+	"github.com/miaozen/openai-compatible/shared/constant"
 )
 
 // BetaThreadMessageService contains methods and other services that help with
@@ -314,6 +314,7 @@ type FileCitationAnnotation struct {
 
 // Returns the unmodified JSON received from the API
 func (r FileCitationAnnotation) RawJSON() string { return r.JSON.raw }
+
 func (r *FileCitationAnnotation) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -331,6 +332,7 @@ type FileCitationAnnotationFileCitation struct {
 
 // Returns the unmodified JSON received from the API
 func (r FileCitationAnnotationFileCitation) RawJSON() string { return r.JSON.raw }
+
 func (r *FileCitationAnnotationFileCitation) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -363,6 +365,7 @@ type FileCitationDeltaAnnotation struct {
 
 // Returns the unmodified JSON received from the API
 func (r FileCitationDeltaAnnotation) RawJSON() string { return r.JSON.raw }
+
 func (r *FileCitationDeltaAnnotation) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -383,6 +386,7 @@ type FileCitationDeltaAnnotationFileCitation struct {
 
 // Returns the unmodified JSON received from the API
 func (r FileCitationDeltaAnnotationFileCitation) RawJSON() string { return r.JSON.raw }
+
 func (r *FileCitationDeltaAnnotationFileCitation) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -411,6 +415,7 @@ type FilePathAnnotation struct {
 
 // Returns the unmodified JSON received from the API
 func (r FilePathAnnotation) RawJSON() string { return r.JSON.raw }
+
 func (r *FilePathAnnotation) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -428,6 +433,7 @@ type FilePathAnnotationFilePath struct {
 
 // Returns the unmodified JSON received from the API
 func (r FilePathAnnotationFilePath) RawJSON() string { return r.JSON.raw }
+
 func (r *FilePathAnnotationFilePath) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -459,6 +465,7 @@ type FilePathDeltaAnnotation struct {
 
 // Returns the unmodified JSON received from the API
 func (r FilePathDeltaAnnotation) RawJSON() string { return r.JSON.raw }
+
 func (r *FilePathDeltaAnnotation) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -476,6 +483,7 @@ type FilePathDeltaAnnotationFilePath struct {
 
 // Returns the unmodified JSON received from the API
 func (r FilePathDeltaAnnotationFilePath) RawJSON() string { return r.JSON.raw }
+
 func (r *FilePathDeltaAnnotationFilePath) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -501,6 +509,7 @@ type ImageFile struct {
 
 // Returns the unmodified JSON received from the API
 func (r ImageFile) RawJSON() string { return r.JSON.raw }
+
 func (r *ImageFile) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -542,6 +551,7 @@ func (r ImageFileParam) MarshalJSON() (data []byte, err error) {
 	type shadow ImageFileParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ImageFileParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -563,6 +573,7 @@ type ImageFileContentBlock struct {
 
 // Returns the unmodified JSON received from the API
 func (r ImageFileContentBlock) RawJSON() string { return r.JSON.raw }
+
 func (r *ImageFileContentBlock) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -593,6 +604,7 @@ func (r ImageFileContentBlockParam) MarshalJSON() (data []byte, err error) {
 	type shadow ImageFileContentBlockParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ImageFileContentBlockParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -618,6 +630,7 @@ type ImageFileDelta struct {
 
 // Returns the unmodified JSON received from the API
 func (r ImageFileDelta) RawJSON() string { return r.JSON.raw }
+
 func (r *ImageFileDelta) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -652,6 +665,7 @@ type ImageFileDeltaBlock struct {
 
 // Returns the unmodified JSON received from the API
 func (r ImageFileDeltaBlock) RawJSON() string { return r.JSON.raw }
+
 func (r *ImageFileDeltaBlock) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -676,6 +690,7 @@ type ImageURL struct {
 
 // Returns the unmodified JSON received from the API
 func (r ImageURL) RawJSON() string { return r.JSON.raw }
+
 func (r *ImageURL) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -716,6 +731,7 @@ func (r ImageURLParam) MarshalJSON() (data []byte, err error) {
 	type shadow ImageURLParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ImageURLParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -736,6 +752,7 @@ type ImageURLContentBlock struct {
 
 // Returns the unmodified JSON received from the API
 func (r ImageURLContentBlock) RawJSON() string { return r.JSON.raw }
+
 func (r *ImageURLContentBlock) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -765,6 +782,7 @@ func (r ImageURLContentBlockParam) MarshalJSON() (data []byte, err error) {
 	type shadow ImageURLContentBlockParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *ImageURLContentBlockParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -789,6 +807,7 @@ type ImageURLDelta struct {
 
 // Returns the unmodified JSON received from the API
 func (r ImageURLDelta) RawJSON() string { return r.JSON.raw }
+
 func (r *ImageURLDelta) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -822,6 +841,7 @@ type ImageURLDeltaBlock struct {
 
 // Returns the unmodified JSON received from the API
 func (r ImageURLDeltaBlock) RawJSON() string { return r.JSON.raw }
+
 func (r *ImageURLDeltaBlock) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -895,6 +915,7 @@ type Message struct {
 
 // Returns the unmodified JSON received from the API
 func (r Message) RawJSON() string { return r.JSON.raw }
+
 func (r *Message) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -915,6 +936,7 @@ type MessageAttachment struct {
 
 // Returns the unmodified JSON received from the API
 func (r MessageAttachment) RawJSON() string { return r.JSON.raw }
+
 func (r *MessageAttachment) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -961,6 +983,7 @@ type MessageAttachmentToolFileSearchTool struct {
 
 // Returns the unmodified JSON received from the API
 func (r MessageAttachmentToolFileSearchTool) RawJSON() string { return r.JSON.raw }
+
 func (r *MessageAttachmentToolFileSearchTool) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -982,6 +1005,7 @@ type MessageIncompleteDetails struct {
 
 // Returns the unmodified JSON received from the API
 func (r MessageIncompleteDetails) RawJSON() string { return r.JSON.raw }
+
 func (r *MessageIncompleteDetails) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1218,6 +1242,7 @@ type MessageContentPartParamUnion struct {
 func (u MessageContentPartParamUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfImageFile, u.OfImageURL, u.OfText)
 }
+
 func (u *MessageContentPartParamUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -1294,6 +1319,7 @@ type MessageDeleted struct {
 
 // Returns the unmodified JSON received from the API
 func (r MessageDeleted) RawJSON() string { return r.JSON.raw }
+
 func (r *MessageDeleted) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1317,6 +1343,7 @@ type MessageDelta struct {
 
 // Returns the unmodified JSON received from the API
 func (r MessageDelta) RawJSON() string { return r.JSON.raw }
+
 func (r *MessageDelta) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1350,6 +1377,7 @@ type MessageDeltaEvent struct {
 
 // Returns the unmodified JSON received from the API
 func (r MessageDeltaEvent) RawJSON() string { return r.JSON.raw }
+
 func (r *MessageDeltaEvent) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1370,6 +1398,7 @@ type RefusalContentBlock struct {
 
 // Returns the unmodified JSON received from the API
 func (r RefusalContentBlock) RawJSON() string { return r.JSON.raw }
+
 func (r *RefusalContentBlock) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1393,6 +1422,7 @@ type RefusalDeltaBlock struct {
 
 // Returns the unmodified JSON received from the API
 func (r RefusalDeltaBlock) RawJSON() string { return r.JSON.raw }
+
 func (r *RefusalDeltaBlock) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1412,6 +1442,7 @@ type Text struct {
 
 // Returns the unmodified JSON received from the API
 func (r Text) RawJSON() string { return r.JSON.raw }
+
 func (r *Text) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1432,6 +1463,7 @@ type TextContentBlock struct {
 
 // Returns the unmodified JSON received from the API
 func (r TextContentBlock) RawJSON() string { return r.JSON.raw }
+
 func (r *TextContentBlock) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1453,6 +1485,7 @@ func (r TextContentBlockParam) MarshalJSON() (data []byte, err error) {
 	type shadow TextContentBlockParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *TextContentBlockParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1472,6 +1505,7 @@ type TextDelta struct {
 
 // Returns the unmodified JSON received from the API
 func (r TextDelta) RawJSON() string { return r.JSON.raw }
+
 func (r *TextDelta) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1495,6 +1529,7 @@ type TextDeltaBlock struct {
 
 // Returns the unmodified JSON received from the API
 func (r TextDeltaBlock) RawJSON() string { return r.JSON.raw }
+
 func (r *TextDeltaBlock) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1527,6 +1562,7 @@ func (r BetaThreadMessageNewParams) MarshalJSON() (data []byte, err error) {
 	type shadow BetaThreadMessageNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadMessageNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1543,6 +1579,7 @@ type BetaThreadMessageNewParamsContentUnion struct {
 func (u BetaThreadMessageNewParamsContentUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfString, u.OfArrayOfContentParts)
 }
+
 func (u *BetaThreadMessageNewParamsContentUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -1581,6 +1618,7 @@ func (r BetaThreadMessageNewParamsAttachment) MarshalJSON() (data []byte, err er
 	type shadow BetaThreadMessageNewParamsAttachment
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadMessageNewParamsAttachment) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1597,6 +1635,7 @@ type BetaThreadMessageNewParamsAttachmentToolUnion struct {
 func (u BetaThreadMessageNewParamsAttachmentToolUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfCodeInterpreter, u.OfFileSearch)
 }
+
 func (u *BetaThreadMessageNewParamsAttachmentToolUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -1646,6 +1685,7 @@ func (r BetaThreadMessageNewParamsAttachmentToolFileSearch) MarshalJSON() (data 
 	type shadow BetaThreadMessageNewParamsAttachmentToolFileSearch
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadMessageNewParamsAttachmentToolFileSearch) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -1665,6 +1705,7 @@ func (r BetaThreadMessageUpdateParams) MarshalJSON() (data []byte, err error) {
 	type shadow BetaThreadMessageUpdateParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *BetaThreadMessageUpdateParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

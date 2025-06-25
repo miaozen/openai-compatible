@@ -10,15 +10,15 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/openai/openai-go/internal/apijson"
-	"github.com/openai/openai-go/internal/apiquery"
-	"github.com/openai/openai-go/internal/requestconfig"
-	"github.com/openai/openai-go/option"
-	"github.com/openai/openai-go/packages/pagination"
-	"github.com/openai/openai-go/packages/param"
-	"github.com/openai/openai-go/packages/respjson"
-	"github.com/openai/openai-go/shared"
-	"github.com/openai/openai-go/shared/constant"
+	"github.com/miaozen/openai-compatible/internal/apijson"
+	"github.com/miaozen/openai-compatible/internal/apiquery"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/option"
+	"github.com/miaozen/openai-compatible/packages/pagination"
+	"github.com/miaozen/openai-compatible/packages/param"
+	"github.com/miaozen/openai-compatible/packages/respjson"
+	"github.com/miaozen/openai-compatible/shared"
+	"github.com/miaozen/openai-compatible/shared/constant"
 )
 
 // VectorStoreService contains methods and other services that help with
@@ -165,6 +165,7 @@ func (r AutoFileChunkingStrategyParam) MarshalJSON() (data []byte, err error) {
 	type shadow AutoFileChunkingStrategyParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *AutoFileChunkingStrategyParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -250,6 +251,7 @@ type FileChunkingStrategyParamUnion struct {
 func (u FileChunkingStrategyParamUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfAuto, u.OfStatic)
 }
+
 func (u *FileChunkingStrategyParamUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -305,6 +307,7 @@ type OtherFileChunkingStrategyObject struct {
 
 // Returns the unmodified JSON received from the API
 func (r OtherFileChunkingStrategyObject) RawJSON() string { return r.JSON.raw }
+
 func (r *OtherFileChunkingStrategyObject) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -328,6 +331,7 @@ type StaticFileChunkingStrategy struct {
 
 // Returns the unmodified JSON received from the API
 func (r StaticFileChunkingStrategy) RawJSON() string { return r.JSON.raw }
+
 func (r *StaticFileChunkingStrategy) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -358,6 +362,7 @@ func (r StaticFileChunkingStrategyParam) MarshalJSON() (data []byte, err error) 
 	type shadow StaticFileChunkingStrategyParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *StaticFileChunkingStrategyParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -377,6 +382,7 @@ type StaticFileChunkingStrategyObject struct {
 
 // Returns the unmodified JSON received from the API
 func (r StaticFileChunkingStrategyObject) RawJSON() string { return r.JSON.raw }
+
 func (r *StaticFileChunkingStrategyObject) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -397,6 +403,7 @@ func (r StaticFileChunkingStrategyObjectParam) MarshalJSON() (data []byte, err e
 	type shadow StaticFileChunkingStrategyObjectParam
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *StaticFileChunkingStrategyObjectParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -454,6 +461,7 @@ type VectorStore struct {
 
 // Returns the unmodified JSON received from the API
 func (r VectorStore) RawJSON() string { return r.JSON.raw }
+
 func (r *VectorStore) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -483,6 +491,7 @@ type VectorStoreFileCounts struct {
 
 // Returns the unmodified JSON received from the API
 func (r VectorStoreFileCounts) RawJSON() string { return r.JSON.raw }
+
 func (r *VectorStoreFileCounts) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -516,6 +525,7 @@ type VectorStoreExpiresAfter struct {
 
 // Returns the unmodified JSON received from the API
 func (r VectorStoreExpiresAfter) RawJSON() string { return r.JSON.raw }
+
 func (r *VectorStoreExpiresAfter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -536,6 +546,7 @@ type VectorStoreDeleted struct {
 
 // Returns the unmodified JSON received from the API
 func (r VectorStoreDeleted) RawJSON() string { return r.JSON.raw }
+
 func (r *VectorStoreDeleted) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -569,6 +580,7 @@ type VectorStoreSearchResponse struct {
 
 // Returns the unmodified JSON received from the API
 func (r VectorStoreSearchResponse) RawJSON() string { return r.JSON.raw }
+
 func (r *VectorStoreSearchResponse) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -635,6 +647,7 @@ type VectorStoreSearchResponseContent struct {
 
 // Returns the unmodified JSON received from the API
 func (r VectorStoreSearchResponseContent) RawJSON() string { return r.JSON.raw }
+
 func (r *VectorStoreSearchResponseContent) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -665,6 +678,7 @@ func (r VectorStoreNewParams) MarshalJSON() (data []byte, err error) {
 	type shadow VectorStoreNewParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *VectorStoreNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -687,6 +701,7 @@ func (r VectorStoreNewParamsExpiresAfter) MarshalJSON() (data []byte, err error)
 	type shadow VectorStoreNewParamsExpiresAfter
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *VectorStoreNewParamsExpiresAfter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -710,6 +725,7 @@ func (r VectorStoreUpdateParams) MarshalJSON() (data []byte, err error) {
 	type shadow VectorStoreUpdateParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *VectorStoreUpdateParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -732,6 +748,7 @@ func (r VectorStoreUpdateParamsExpiresAfter) MarshalJSON() (data []byte, err err
 	type shadow VectorStoreUpdateParamsExpiresAfter
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *VectorStoreUpdateParamsExpiresAfter) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -794,6 +811,7 @@ func (r VectorStoreSearchParams) MarshalJSON() (data []byte, err error) {
 	type shadow VectorStoreSearchParams
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *VectorStoreSearchParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
@@ -810,6 +828,7 @@ type VectorStoreSearchParamsQueryUnion struct {
 func (u VectorStoreSearchParamsQueryUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfString, u.OfStringArray)
 }
+
 func (u *VectorStoreSearchParamsQueryUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -835,6 +854,7 @@ type VectorStoreSearchParamsFiltersUnion struct {
 func (u VectorStoreSearchParamsFiltersUnion) MarshalJSON() ([]byte, error) {
 	return param.MarshalUnion(u, u.OfComparisonFilter, u.OfCompoundFilter)
 }
+
 func (u *VectorStoreSearchParamsFiltersUnion) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, u)
 }
@@ -894,6 +914,7 @@ func (r VectorStoreSearchParamsRankingOptions) MarshalJSON() (data []byte, err e
 	type shadow VectorStoreSearchParamsRankingOptions
 	return param.MarshalObject(r, (*shadow)(&r))
 }
+
 func (r *VectorStoreSearchParamsRankingOptions) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

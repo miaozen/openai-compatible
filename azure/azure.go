@@ -31,8 +31,8 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
-	"github.com/openai/openai-go/internal/requestconfig"
-	"github.com/openai/openai-go/option"
+	"github.com/miaozen/openai-compatible/internal/requestconfig"
+	"github.com/miaozen/openai-compatible/option"
 )
 
 // WithEndpoint configures this client to connect to an Azure OpenAI endpoint.
@@ -61,7 +61,6 @@ func WithEndpoint(endpoint string, apiVersion string) option.RequestOption {
 
 	withModelMiddleware := option.WithMiddleware(func(r *http.Request, mn option.MiddlewareNext) (*http.Response, error) {
 		replacementPath, err := getReplacementPathWithDeployment(r)
-
 		if err != nil {
 			return nil, err
 		}
@@ -109,7 +108,6 @@ func WithTokenCredential(tokenCredential azcore.TokenCredential) option.RequestO
 		})
 
 		req2, err := runtime.NewRequestFromRequest(req)
-
 		if err != nil {
 			return nil, err
 		}
@@ -161,7 +159,6 @@ func getReplacementPathWithDeployment(req *http.Request) (string, error) {
 func getJSONRoute(req *http.Request) (string, error) {
 	// we need to deserialize the body, partly, in order to read out the model field.
 	jsonBytes, err := io.ReadAll(req.Body)
-
 	if err != nil {
 		return "", err
 	}
@@ -184,7 +181,6 @@ func getJSONRoute(req *http.Request) (string, error) {
 func getAudioMultipartRoute(req *http.Request) (string, error) {
 	// body is a multipart/mime body type instead.
 	mimeBytes, err := io.ReadAll(req.Body)
-
 	if err != nil {
 		return "", err
 	}
@@ -193,7 +189,6 @@ func getAudioMultipartRoute(req *http.Request) (string, error) {
 	req.Body = io.NopCloser(bytes.NewReader(mimeBytes))
 
 	_, mimeParams, err := mime.ParseMediaType(req.Header.Get("Content-Type"))
-
 	if err != nil {
 		return "", err
 	}
@@ -204,7 +199,6 @@ func getAudioMultipartRoute(req *http.Request) (string, error) {
 
 	for {
 		mp, err := mimeReader.NextPart()
-
 		if err != nil {
 			if errors.Is(err, io.EOF) {
 				return "", errors.New("unable to find the model part in multipart body")
@@ -217,7 +211,6 @@ func getAudioMultipartRoute(req *http.Request) (string, error) {
 
 		if mp.FormName() == "model" {
 			modelBytes, err := io.ReadAll(mp)
-
 			if err != nil {
 				return "", err
 			}
